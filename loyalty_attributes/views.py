@@ -101,4 +101,5 @@ class UpdateDeleteLoyaltyAttributeView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         loyalty_attribute.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT,
+                        data={"message": "Loyalty Attribute deleted successfully"})
