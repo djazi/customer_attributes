@@ -11,6 +11,9 @@ Make sure you have Docker and Docker Compose installed on your machine. For inst
 ## Setup
 
 1. Clone this repository:
+    ```bash
+    git clone https://github.com/djazi/customer_attributes.git
+    ```
 
 2. Navigate to the project directory:
     ```bash
