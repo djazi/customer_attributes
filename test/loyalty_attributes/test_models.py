@@ -17,7 +17,10 @@ def test_customer_model(customer_factory):
 def test_loyalty_attribute_model(loyalty_attribute_factory):
     loyalty_attribute = loyalty_attribute_factory()
     assert isinstance(loyalty_attribute, LoyaltyAttribute)
-    assert loyalty_attribute.__str__() == f"{loyalty_attribute.loyalty_level} - {loyalty_attribute.points_balance}"
+    assert (
+        loyalty_attribute.__str__()
+        == f"{loyalty_attribute.loyalty_level} - {loyalty_attribute.points_balance}"
+    )
 
 
 @pytest.mark.django_db

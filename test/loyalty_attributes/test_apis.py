@@ -62,8 +62,8 @@ def test_next_target_customer_view(api_client, user_factory, customer_factory):
     url = reverse("next_target_customer")
     response = api_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data) == 1
-    assert response.data[0]["name"] == "Khalid"
+    assert response.data["count"] == 1
+    assert response.data["results"][0]["name"] == "Khalid"
 
 
 @pytest.mark.django_db
@@ -76,8 +76,10 @@ def test_list_create_loyalty_attribute_view(
     url = reverse("list_create_loyalty_attribute")
     response = api_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.data) == 1
-    assert response.data[0]["loyalty_level"] == loyalty_attribute.loyalty_level
+    assert response.data["count"] == 1
+    assert (
+        response.data["results"][0]["loyalty_level"] == loyalty_attribute.loyalty_level
+    )
     data = {"loyalty_level": 10, "points_balance": 100, "reward_status": "Active"}
     response = api_client.post(url, data)
     assert response.status_code == status.HTTP_201_CREATED
